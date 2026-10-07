@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adulterado — Reserva Especial · VeriSeal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF8F1; --card:#fff; --gold:#8A6420; --gold-m:#BC8F2E; --gold-l:#E9D8AC;
+  --red:#C62E27; --ink:#1B1B1B; --muted:#6B665B;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;
+  height:100vh;height:100dvh;overflow:auto;padding:clamp(8px,2vh,24px) 16px;display:flex;justify-content:center}
+main{width:100%;max-width:480px;min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;gap:clamp(6px,1.6vh,20px)}
+header{text-align:center}
+header h1{font-family:Fraunces,serif;font-weight:600;font-size:clamp(17px,min(6vw,3.4vh),26px);letter-spacing:.14em;text-transform:uppercase}
+header p{font-size:clamp(10px,1.6vh,12px);letter-spacing:.2em;color:var(--gold-m);margin-top:4px}
+.seal{width:clamp(80px,min(48vw,22vh),200px);aspect-ratio:1;flex:none;animation:shake .6s ease both}
+.seal svg{width:100%;height:100%;display:block}
+@keyframes shake{0%{transform:scale(.7);opacity:0}40%{transform:scale(1.04);opacity:1}55%{transform:rotate(-3deg)}70%{transform:rotate(3deg)}100%{transform:none}}
+.status{text-align:center}
+.status h2{font-family:Fraunces,serif;font-weight:400;color:var(--red);font-size:clamp(32px,min(12vw,6.5vh),58px);line-height:1.05}
+.status p{color:var(--muted);margin-top:clamp(6px,1.2vh,12px);line-height:1.4;font-size:clamp(12px,min(4vw,2vh),16px)}
+.status p b{display:block;color:var(--ink);margin-top:2px}
+.panel{position:relative;width:100%;background:var(--card);border-radius:22px;box-shadow:0 10px 30px rgba(120,90,30,.1);padding:clamp(6px,1.2vh,12px);overflow:hidden}
+.cert{border:1px solid #EDE8DA;border-radius:16px;padding:clamp(10px,2vh,18px) clamp(14px,4vw,22px) clamp(8px,1.5vh,14px);position:relative}
+.label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#9A968C}
+.cert-top{display:flex;justify-content:space-between;align-items:center}
+.cert-body{display:flex;gap:18px;align-items:center;margin:clamp(8px,1.8vh,18px) 0 clamp(8px,2vh,22px);position:relative}
+.faded{opacity:.45;display:flex;gap:18px;align-items:center;width:100%}
+.thumb{flex:none;width:clamp(48px,min(22vw,10vh),90px);aspect-ratio:1;background:#F2F2F2;border-radius:16px;display:grid;place-items:center}
+.thumb svg{width:52%}
+.cert h3{font-family:Fraunces,serif;font-weight:600;font-size:clamp(18px,min(6vw,3.2vh),26px);color:#555}
+.meta{display:flex;gap:clamp(14px,5vw,28px);margin-top:8px;flex-wrap:wrap}
+.meta small{display:block;color:var(--muted);font-size:13px}
+.meta b{font-size:clamp(14px,4vw,17px);font-weight:600;color:#555}
+.stamp{position:absolute;left:50%;top:50%;transform:translate(-45%,-45%) rotate(-12deg);
+  border:4px solid var(--red);border-radius:10px;color:var(--red);padding:4px 14px;
+  font-family:Fraunces,serif;font-weight:600;font-size:clamp(22px,min(9vw,4.6vh),40px);letter-spacing:.12em;
+  background:rgba(255,255,255,.35);white-space:nowrap;animation:stamp .5s .5s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes stamp{from{transform:translate(-45%,-45%) rotate(-12deg) scale(2.2);opacity:0}to{transform:translate(-45%,-45%) rotate(-12deg);opacity:1}}
+.serial{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.2em;color:#9A968C;font-weight:500;white-space:nowrap}
+.serial::before,.serial::after{content:"";flex:1;border-top:1px dashed #E3DED0}
+.serial::before{flex:.6}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,2.5vw,14px);width:100%}
+.action{background:#fff;border-radius:18px;box-shadow:0 6px 20px rgba(120,90,30,.08);padding:clamp(8px,1.8vh,18px) 8px;
+  text-align:center;font-weight:600;font-size:clamp(13px,3.6vw,15.5px);line-height:1.3;
+  display:flex;flex-direction:column;align-items:center;gap:clamp(4px,1vh,10px)}
+.action svg{width:clamp(20px,3vh,26px);height:clamp(20px,3vh,26px);fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.action.red svg{stroke:var(--red)}
+.note{width:100%;background:#F3EAD6;border-radius:18px;padding:clamp(8px,1.6vh,16px) 18px;display:flex;gap:14px;align-items:flex-start;color:#4a4437;line-height:1.5;font-size:clamp(11px,min(3.6vw,1.9vh),15px)}
+.note svg{flex:none;width:22px;height:22px;margin-top:2px;fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round}
+@media(max-width:360px){.actions{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Reserva Especial</h1>
+    <p>PROTEGIDO POR VERISEAL</p>
+  </header>
+
+  <div class="seal" id="seal" role="img" aria-label="Selo rompido"></div>
+
+  <section class="status">
+    <h2>Adulterado.</h2>
+    <p>Ele foi rompido antes de chegar até você.<b>Por segurança, não consuma.</b></p>
+  </section>
+
+  <section class="panel">
+    <div class="cert">
+      <div class="cert-top">
+        <span class="label">Certificado de autenticidade</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A968C" stroke-width="2" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
+      </div>
+      <div class="cert-body">
+        <div class="faded">
+          <div class="thumb">
+            <svg viewBox="0 0 40 70" fill="none" stroke="#999" stroke-width="2.4" stroke-linejoin="round"><path d="M16 3h8v14c0 4 8 7 8 14v33a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V31c0-7 8-10 8-14z"/><rect x="14" y="38" width="12" height="12" rx="1.5"/></svg>
+          </div>
+          <div>
+            <h3>Whisky 12 anos</h3>
+            <div class="meta">
+              <div><small>Lote</small><b>L24A6789</b></div>
+              <div><small>Engarrafado</small><b>15/08/2026</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="stamp">INVÁLIDO</div>
+      </div>
+      <div class="serial">Nº VS·7F3A·91C2</div>
+    </div>
+  </section>
+
+  <section class="actions">
+    <div class="action red"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>Não consuma</div>
+    <div class="action"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9"/></svg>Guarde garrafa e nota</div>
+    <div class="action"><svg viewBox="0 0 24 24"><path d="M6 21V3M6 4h12l-3 4 3 4H6"/></svg>Avise o fabricante</div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var n=14,R=70,r=22,s='<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="98" fill="#F8E1E0"/>';
+  for(var i=0;i<n;i++){var a=i/n*2*Math.PI;s+='<circle cx="'+(100+R*Math.cos(a)).toFixed(1)+'" cy="'+(100+R*Math.sin(a)).toFixed(1)+'" r="'+r+'" fill="#C8302A"/>';}
+  s+='<circle cx="100" cy="100" r="76" fill="#C8302A"/><circle cx="100" cy="100" r="58" fill="#8E1D17"/>'
+   +'<path d="M112 14l-14 40 20 14-16 28 14 12-10 38 -2 40" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" transform="translate(-6 -2)"/></svg>';
+  document.getElementById('seal').innerHTML=s;
+})();
+</script>
+</body>
+</html>
